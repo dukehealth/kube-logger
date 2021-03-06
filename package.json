@@ -1,0 +1,36 @@
+{
+  "name": "kube-logger",
+  "version": "1.0.10",
+  "files": [
+    "index.js"
+  ],
+  "description": "A utility to unify web and application logs via winston and morgan",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nyc mocha",
+    "proof": "eslint --ignore-path .gitignore .",
+    "postversion": "git push --follow-tags"
+  },
+  "keywords": [
+    "logger",
+    "k8s",
+    "kubernetes",
+    "winston",
+    "morgan"
+  ],
+  "author": "CATS",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "mocha": "^7.1.2",
+    "mochawesome": "^6.1.1"
+  },
+  "dependencies": {
+    "morgan": "^1.10.0",
+    "winston": "^3.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dukehealth/kube-logger.git"
+  }
+}
