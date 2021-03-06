@@ -1,5 +1,5 @@
 {
-  "name": "kube-logger",
+  "name": "kubernetes-logger",
   "version": "1.0.10",
   "files": [
     "index.js"
