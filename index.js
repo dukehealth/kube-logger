@@ -105,6 +105,7 @@ module.exports= function(label,options){
       ...options.masks,
       new RegExp(mask,'g')
     ];
+    options.masks = masks;
     logger.format = winston.format.combine(
       winston.format.timestamp(),
       winston.format.label({label:label}),

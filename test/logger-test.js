@@ -107,4 +107,13 @@ describe ('test the logger function',()=>{
     logger.addMask('(3)');
     logger.info('123abcXYZ');
   });
+
+  it ('should allow me to pass multiple masks afterwards',()=>{
+    const logger = require('../')('multiplemasks');
+    logger.info('123abcXYZ');
+    logger.addMask('(3)');
+    logger.info('123abcXYZ');
+    logger.addMask('(abc)');
+    logger.info('123abcXYZ');
+  });
 });
