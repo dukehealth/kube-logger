@@ -100,4 +100,11 @@ describe ('test the logger function',()=>{
     logger.addMask('(3)');
     logger.info('123abcXYZ');
   });
+
+  it ('should allow me to pass the first mask afterwards',()=>{
+    const logger = require('../')('firstmask');
+    logger.info('123abcXYZ');
+    logger.addMask('(3)');
+    logger.info('123abcXYZ');
+  });
 });

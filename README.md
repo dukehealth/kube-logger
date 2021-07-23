@@ -112,3 +112,17 @@ logger.info('/test/?MRN=DY2343&something=FD32342&ID=23432')
 2020-05-11T17:41:53.005Z [masked] info: loglevel(LOG_LEVEL): masked info
 2020-05-11T17:41:53.006Z [masked] info: /test/?MRN=******&something=FD32342&ID=*****
 ```
+
+Masks can also be added later
+```javascript
+const logger = require('kubernetes-logger')('maskedLater');
+logger.info('123abcXYZ');
+logger.addMask('(abc)');
+logger.info('123abcXYZ');
+```
+
+```bash
+2021-07-23T17:27:56.827Z [firstmask] info: loglevel(LOG_LEVEL): maskedLater info 
+2021-07-23T17:27:56.827Z [firstmask] info: 123abcXYZ 
+2021-07-23T17:27:56.828Z [firstmask] info: 123***XYZ
+```
