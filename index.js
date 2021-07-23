@@ -99,5 +99,19 @@ module.exports= function(label,options){
   logger.morgan = (style)=>morgan(style,{stream:morganStream});
 
   logger.info(`loglevel(LOG_LEVEL): ${label} ${loglevel}`);
+
+  logger.addMask = mask =>{
+    let masks = [
+      ...options.masks,
+      new RegExp(mask,'g')
+    ];
+    logger.format = winston.format.combine(
+      winston.format.timestamp(),
+      winston.format.label({label:label}),
+      multiArgs,
+      masking(masks),
+      kubeFormat
+    );
+  };
   return logger;
 };

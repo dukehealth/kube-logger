@@ -89,4 +89,15 @@ describe ('test the logger function',()=>{
     const logger = require('../')('null');
     logger.debug(null,null);
   });
+
+  it ('should allow to add a mask afterwards',()=>{
+    const logger = require('../')('addmask',{
+      masks:[
+        '(abc)'
+      ]
+    });
+    logger.info('123abcXYZ');
+    logger.addMask('(3)');
+    logger.info('123abcXYZ');
+  });
 });
