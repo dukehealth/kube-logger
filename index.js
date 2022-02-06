@@ -66,7 +66,15 @@ const masking = (masks)=>{
 // };
 
 function stringifyMessage(a){
-  return typeof a==='object'?JSON.stringify(a):String(a);
+  let rc = String(a);
+  if (typeof a==='object'){
+    try {
+      rc = JSON.stringify(a);
+    } catch (err){
+      rc = util.inspect(a);
+    }
+  }
+  return rc;
 }
 
 
